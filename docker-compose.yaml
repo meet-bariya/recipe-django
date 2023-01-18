@@ -9,4 +9,4 @@ services:
       - $PORT:80
     image: meetbariya/recipe-django
     container_name: recipe_django
-    command: gunicorn recipe.wsgi:application --bind $HOST:$PORT 
+    command: python manage.py makemigrations && python manage.py migrate && gunicorn recipe.wsgi:application --bind $HOST:$PORT 
