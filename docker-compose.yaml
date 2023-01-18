@@ -6,7 +6,7 @@ services:
     volumes:
       - .:/app
     ports: 
-      - 8000:8000
+      - $PORT:80
     image: meetbariya/recipe-django
     container_name: recipe_django
-    command: gunicorn recipe.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn recipe.wsgi:application --bind $HOST:$PORT 
