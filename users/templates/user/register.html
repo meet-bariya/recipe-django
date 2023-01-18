@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+    <title>{%block title %} RecipeApp {% endblock %}</title>
+</head>
+<body>
+
+<div class="container">
+    <h2> Register </h2>
+</header>
+
+<div class="container">
+   
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}  
+        <button type="submit">Register</button>
+        <p>If you already have an account, <a href="#">login</a> instead.</p>
+    </form>
+</div>    
+</body>
+</html>
+    
+  

@@ -1,0 +1,24 @@
+{% extends 'food/base.html' %}
+
+{% block title %}
+RecipeApp - {{  item.item_name }} 
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="grid">
+        <figure>
+            <img src="{{ item.item_image }}" class="card" height="300px" width="500px"  alt="{{ item.item_name }} image" title="{{ item.item_name }}">
+        </figure>
+        <section></section>
+            <section>
+            <hgroup>            
+                <h2> {{ item.item_name }}</h2>
+                <h4> {{ item.item_desc }}</h4>
+                <h4> $ {{ item.item_price }}</h4>
+            </hgroup>  <br>
+            <a href="{% url 'food:item_delete' item.id %}" role="button" class="secondary outline"> Delete Item </a>
+        </section>
+    </article>
+</div>
+{% endblock %}

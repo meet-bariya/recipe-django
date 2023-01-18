@@ -1,0 +1,19 @@
+{% extends 'food/base.html'%}
+
+{% block title %}
+RecipeApp - Add Item
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2> Add Item </h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}  
+        <button type="submit">Add</button>
+    </form>
+</div>    
+{% endblock %}
+
