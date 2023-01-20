@@ -28,8 +28,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG')
 
-ALLOWED_HOSTS = [config('ALLOWED_HOSTS').split(',')]
-
+# ALLOWED_HOSTS = [config('ALLOWED_HOSTS').split(',')]
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 # Application definition
 
@@ -88,8 +88,13 @@ WSGI_APPLICATION = 'recipe.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE' : 'django.db.backends.postgresql',
+        'NAME' : 'postgres',
+        'HOST' : config('SUPABASE_HOST'),
+        'PASSWORD': config('SUPABASE_PASS'),
+        'PORT': 5432,
+        'USER': 'postgres',
+        'CERT' : 'prod-ca-2021.crt', 
     }
 }
 
