@@ -6,6 +6,6 @@ services:
     volumes:
       - .:/app
     ports: 
-      - 80:80
-    image: meetbariya/recipe-django
+      - 8000:8000
+    image: meetbariya/recipe_django
     container_name: recipe_django
