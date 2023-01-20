@@ -14,29 +14,26 @@
     </div>
     {% endfor %}
 {% endif %}
+<h1> Item List </h1> 
 
+{% for item in item_list  %}
+<article class="grid">
+    <figure>
+        <img height="150px" width="400px" src="{{ item.item_image }}" alt="{{ item.item_name }} image" title="{{ item.item_name }}">
+    </figure>
+    <section></section>
+    <section>
+        <hgroup>
+            <h2>{{ item.item_name }}</h2>
+            <h3>$ {{ item.item_price }}</h3>
+            
+          </hgroup>
+          <p>{{ item.item_desc }}</p>
+          <a href="{% url 'food:item_detail' item.id %}" role="button" class="outline"> Details </a> &nbsp;&nbsp;
+          <a href="{% url 'food:item_delete' item.id %}" role="button" class="secondary outline"> Delete Item </a>
+    </section>
+</article>
+<br><br>            
+{% endfor %}
 
-<div class="container">
-    <h1> Item List </h1> 
-
-    {% for item in item_list  %}
-    <article class="grid">
-        <figure>
-            <img height="150px" width="400px" src="{{ item.item_image }}" alt="{{ item.item_name }} image" title="{{ item.item_name }}">
-        </figure>
-        <section></section>
-        <section>
-            <hgroup>
-                <h2>{{ item.item_name }}</h2>
-                <h3>$ {{ item.item_price }}</h3>
-                
-              </hgroup>
-              <p>{{ item.item_desc }}</p>
-              <a href="{% url 'food:item_detail' item.id %}" role="button" class="outline"> Details </a> &nbsp;&nbsp;
-              <a href="{% url 'food:item_delete' item.id %}" role="button" class="secondary outline"> Delete Item </a>
-        </section>
-    </article>
-    <br><br>
-    {% endfor %}
-</div>
 {% endblock %}
